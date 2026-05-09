@@ -55,7 +55,7 @@ void create_file(void)
     // opening in "w" mode will create the file if it doesn't exist, or truncate it if it does
     // this is a pointer to a FILE struct, which we can use to write to the file if we wanted to
     FILE *fp = fopen(filename, "w");
-    // if fopen fails, it returns NULL, so we check for that
+    // if open fails, it returns NULL, so we check for that
     if (!fp) {
         perror(RED "Error" RESET);
         return;
@@ -64,7 +64,7 @@ void create_file(void)
     printf(GREEN "File '%s' created successfully!\n" RESET, filename);
 }
 
-// 2. Open / Edit – launch nano automatically
+// 2. Open / Edit launch nano automatically
 void open_file(void)
 {
     char filename[256];
@@ -75,7 +75,7 @@ void open_file(void)
 
     /* nano creates the file if it doesn't exist, so no pre-check needed */
     char command[512];
-    //?
+    //
     snprintf(command, sizeof(command), "nano %s", filename);
 
     printf(GREEN "Opening '%s' in nano...\n" RESET, filename);
